@@ -136,7 +136,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
           </label>
           <div className="flex space-x-4">
             <input
-              type="text"
+              type="number"
               placeholder="MM"
               className="border p-2 rounded w-1/3 text-gray-500"
               maxLength="2"
@@ -145,7 +145,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
               required
             />
             <input
-              type="text"
+              type="number"
               placeholder="DD"
               className="border p-2 rounded w-1/3 text-gray-500"
               maxLength="2"
@@ -154,7 +154,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
               required
             />
             <input
-              type="text"
+              type="number"
               placeholder="YYYY"
               className="border p-2 rounded w-1/3 text-gray-500"
               maxLength="4"

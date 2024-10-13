@@ -75,7 +75,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
           </div>
           <div>
             <input
-              type="text"
+              type="number"
               placeholder="Postal / Zip Code"
               value={formData.address?.postal || ''}
               onChange={(e) =>
@@ -134,7 +134,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
           <label className="block text-gray-700 mb-2 font-semibold">Phone Number</label>
           <div className="flex space-x-2 mb-4 ">
             <input
-              type="text"
+              type="number"
               placeholder="XXX"
               value={formData.phone?.areaCode || ''}
               onChange={(e) => handleChange('phone', { ...formData.phone, areaCode: e.target.value })}
@@ -143,7 +143,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
               className="w-16 border p-2 rounded text-center"/>
               <div className="flex justify-center items-center font-bold">-</div>
               <input
-              type="text"
+              type="number"
               placeholder="XXX"
               value={formData.phone?.firstPart || ''}
               onChange={(e) => handleChange('phone', { ...formData.phone, firstPart: e.target.value })}
@@ -152,7 +152,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
               className="w-16 border p-2 rounded text-center"
             /><div className="flex justify-center items-center font-bold">-</div>
             <input
-              type="text"
+              type="number"
               placeholder="XXXX"
               value={formData.phone?.lastPart || ''}
               onChange={(e) => handleChange('phone', { ...formData.phone, lastPart: e.target.value })}
@@ -167,7 +167,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
           <label className="block text-gray-700 mb-2 font-semibold">Secondary Phone Number</label>
           <div className="flex space-x-2">
             <input
-              type="text"
+              type="number"
               placeholder="XXX"
               value={formData.secondaryPhone?.areaCode || ''}
               onChange={(e) => handleChange('secondaryPhone', { ...formData.secondaryPhone, areaCode: e.target.value })}
@@ -175,7 +175,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
               className="w-16 border p-2 rounded text-center"
             /><div className="flex justify-center items-center font-bold">-</div>
             <input
-              type="text"
+              type="number"
               placeholder="XXX"
               value={formData.secondaryPhone?.firstPart || ''}
               onChange={(e) => handleChange('secondaryPhone', { ...formData.secondaryPhone, firstPart: e.target.value })}
@@ -183,7 +183,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
               className="w-16 border p-2 rounded text-center"
             /><div className="flex justify-center items-center font-bold">-</div>
             <input
-              type="text"
+              type="number"
               placeholder="XXXX"
               value={formData.secondaryPhone?.lastPart || ''}
               onChange={(e) => handleChange('secondaryPhone', { ...formData.secondaryPhone, lastPart: e.target.value })}

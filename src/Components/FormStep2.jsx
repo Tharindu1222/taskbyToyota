@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const FormStep2 = ({ prevStep, nextStep, handleChange, formData }) => {
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleMealPlanChange = (e) => {
     const value = e.target.value;
 
@@ -12,10 +14,35 @@ const FormStep2 = ({ prevStep, nextStep, handleChange, formData }) => {
       handleChange('daysRequested', []);
     }
     handleChange('mealPlan', value);
+    setErrorMessage(''); // Clear error message on change
+  };
+
+  const handleDayChange = (day) => {
+    if (formData.mealPlan !== '21') {
+      const selectedDays = formData.daysRequested.includes(day)
+        ? formData.daysRequested.filter((d) => d !== day)
+        : [...formData.daysRequested, day];
+      handleChange('daysRequested', selectedDays);
+      setErrorMessage(''); // Clear error message on day selection
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate that a meal plan is selected
+    if (!formData.mealPlan) {
+      setErrorMessage('Please select a meal plan.');
+      return;
+    }
+
+    // Validate that at least one day is selected if full meal plan isn't chosen
+    if (formData.mealPlan !== '21' && formData.daysRequested.length === 0) {
+      setErrorMessage('Please select at least one day.');
+      return;
+    }
+
+    setErrorMessage('');
     nextStep();
   };
 
@@ -73,25 +100,29 @@ const FormStep2 = ({ prevStep, nextStep, handleChange, formData }) => {
           <label className="block text-gray-700 text-lg mb-2 font-semibold">
             Days Requested <span className="text-red-500">*</span>
           </label>
-          <div className="grid grid-cols-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
               <label key={day} className="flex items-center text-lg">
                 <input
-                  type="checkbox"
-                  checked={formData.daysRequested.includes(day) || formData.mealPlan === '21'}
-                  onChange={(e) => {
-                    const selectedDays = e.target.checked
-                      ? [...formData.daysRequested, day]
-                      : formData.daysRequested.filter(d => d !== day);
-                    handleChange('daysRequested', selectedDays);
-                  }}
-                  className="form-checkbox"
-                />
+  type="checkbox"
+  checked={formData.mealPlan === '21' || formData.daysRequested.includes(day)}
+  onChange={() => handleDayChange(day)}
+  className="form-checkbox"
+  disabled={formData.mealPlan === '21'} // Disable checkboxes if full meal plan is selected
+/>
+
                 <span className="ml-2">{day}</span>
               </label>
             ))}
           </div>
         </div>
+
+        {/* Error Message */}
+        {errorMessage && (
+          <div className="mb-4 text-red-500 font-semibold">
+            {errorMessage}
+          </div>
+        )}
 
         {/* Navigation Buttons */}
         <div className="flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-4">
