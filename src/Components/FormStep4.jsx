@@ -15,8 +15,8 @@ const FormStep4 = ({ prevStep, handleChange, formData, handleSubmit }) => {
       return;
     }
 
-    setError(""); // Clear error message if validation passes
-    handleSubmit(); // This triggers the final submission
+    setError(""); 
+    handleSubmit(); 
   };
 
   // Format the primary phone number
@@ -32,19 +32,19 @@ const FormStep4 = ({ prevStep, handleChange, formData, handleSubmit }) => {
         {/* Review Details */}
         <div className="mb-4 text-sm sm:text-lg space-y-4">
           <div className="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 w-full">
-            {/* First Column: Applicant's Name */}
+            {/* Applicant's Name */}
             <div className="flex-1">
               <p><strong>Applicant’s Name:</strong><br /> {formData.applicantName.firstName} {formData.applicantName.lastName}</p>
             </div>
-            {/* Second Column: Age */}
+            {/*  Age */}
             <div className="flex-1">
               <p><strong>Age:</strong><br /> {formData.birthMonth}/{formData.birthDay}/{formData.birthYear}</p>
             </div>
-            {/* Third Column: Disability */}
+            {/*  Disability */}
             <div className="flex-1">
               <p><strong>Do you have a disability?</strong><br /> {formData.disability ? 'Yes' : 'No'}</p>
             </div>
-            {/* Fourth Column: Disability Documentation Upload */}
+            {/* Disability Documentation Upload */}
             <div className="flex-1">
               <p><strong>Disability Documentation Upload:</strong><br /> {formData.disabilityFile ? formData.disabilityFile.name : 'No file uploaded'}</p>
             </div>
@@ -52,11 +52,11 @@ const FormStep4 = ({ prevStep, handleChange, formData, handleSubmit }) => {
           
              {/* Meal Plan and Days Requested */}
             <div className="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 w-full">
-              {/* First Column: Meal Plan Choice */}
+              {/* Meal Plan Choice */}
               <div className="flex-1">
                 <p><strong>Meal Plan Choice:</strong><br /> {formData.mealPlan === '21' ? 'Full 21 Meals' : formData.mealPlan}</p>
               </div>
-              {/* Second Column: Days Requested */}
+              {/* Days Requested */}
               <div className="flex-1">
                 <p><strong>Days Requested:</strong><br /> {formData.daysRequested.join(', ') || 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'}</p>
               </div>

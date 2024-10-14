@@ -4,6 +4,7 @@ const FormStep5 = () => {
   return (
     <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-12">
       <div className="bg-white p-8 rounded-lg text-center">
+        {/* Thank you Section */}
         <h2 className="text-3xl font-semibold mb-4 text-black">
           Thank You For Submitting Your Application
         </h2>
@@ -25,7 +26,7 @@ const FormStep5 = () => {
 
         {/* Button Section */}
         <div className="flex justify-between mt-8">
-          {/* Return to Homepage - Bottom Left */}
+          {/* Return to Homepage button */}
           <button
             onClick={() => window.location.href = '/'}
             className="bg-purple-700 text-white py-2 px-6 rounded shadow hover:bg-purple-800 transition-colors duration-200"
@@ -33,7 +34,7 @@ const FormStep5 = () => {
             Return To Homepage
           </button>
 
-          {/* Print Confirmation - Bottom Right */}
+          {/* Print Confirmation button */}
           <button
             onClick={() => window.print()}
             className="bg-orange-500 text-white py-2 px-6 rounded shadow hover:bg-orange-600 transition-colors duration-200"

@@ -6,6 +6,7 @@ import FormStep3 from './FormStep3';
 import FormStep4 from './FormStep4';
 import FormStep5 from './FormStep5';
 
+ //form
 const Form = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -32,10 +33,11 @@ const Form = () => {
   const handleChange = (input, value) => {
     setFormData({ ...formData, [input]: value });
   };
-
+  
+   // Move to the thank you page
   const handleSubmit = () => {
     console.log('Final submission', formData);
-    nextStep(); // Move to the thank you page
+    nextStep(); 
   };
 
   return (

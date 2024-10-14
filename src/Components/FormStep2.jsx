@@ -13,8 +13,9 @@ const FormStep2 = ({ prevStep, nextStep, handleChange, formData }) => {
       // Clear days if a different meal plan is selected
       handleChange('daysRequested', []);
     }
+    // Clear error message on change
     handleChange('mealPlan', value);
-    setErrorMessage(''); // Clear error message on change
+    setErrorMessage(''); 
   };
 
   const handleDayChange = (day) => {

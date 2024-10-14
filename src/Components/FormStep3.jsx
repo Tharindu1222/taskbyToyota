@@ -118,7 +118,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
             rows="3"
             style={{ minWidth: '280px' }}
           />
-          {/* Dynamically show the character count */}
+          {/* Dynamically show the character count 75 */}
           <p className="text-gray-500 text-right text-sm">
             {formData.deliveryInstructions ? formData.deliveryInstructions.length : 0}/75
           </p>

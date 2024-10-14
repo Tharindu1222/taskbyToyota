@@ -16,10 +16,11 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
       <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white rounded-lg">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">1. Your Information</h2> {/* Increased font size */}
 
-        {/* Applicant's Name in a single row */}
+        {/* Applicant's Name */}
         <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
           <div className="w-full md:w-1/2 mb-4 md:mb-0">
-            <label htmlFor="firstName" className="block text-gray-700 text-lg mb-2 font-semibold"> {/* Increased font size */}
+          {/* Applicant's First Name */}
+            <label htmlFor="firstName" className="block text-gray-700 text-lg mb-2 font-semibold">
               Applicant's Name <span className="text-red-500">*</span>
             </label>
             <div className="flex space-x-4">
@@ -37,6 +38,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
                 }
                 required
               />
+              {/* Applicant's Last Name */}
               <input
                 type="text"
                 id="lastName"
@@ -57,7 +59,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
 
         {/* Checkbox: Submitting on behalf of someone else */}
         <div className="mb-4">
-          <label className="inline-flex items-center text-lg"> {/* Increased font size */}
+          <label className="inline-flex items-center text-lg"> 
             <input
               type="checkbox"
               checked={isSubmittingForSomeoneElse}
@@ -74,7 +76,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
         {/* Additional Fields if submitting on behalf */}
         {isSubmittingForSomeoneElse && (
           <div className="flex flex-col">
-            <p className="text-gray-600 mb-2 text-lg"> {/* Increased font size */}
+            <p className="text-gray-600 mb-2 text-lg"> 
               <i>If you are submitting this form for another person, please provide your information below:</i>
             </p>
 
@@ -106,12 +108,12 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
             {/* Relationship to the Applicant (Dropdown) */}
             <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
               <div className="w-full md:w-1/2 mb-4 md:mb-0">
-                <label htmlFor="relationship" className="block text-gray-700 text-lg mb-2"> {/* Increased font size */}
+                <label htmlFor="relationship" className="block text-gray-700 text-lg mb-2">
                   Relationship to Applicant <span className="text-red-500">*</span>
                 </label>
                 <select
                   id="relationship"
-                  className="w-full md:w-1/2 mb-4 md:mb-0 border p-2 rounded" // Added border and padding for consistency
+                  className="w-full md:w-1/2 mb-4 md:mb-0 border p-2 rounded" 
                   value={formData.relationship || ""}
                   onChange={(e) => handleChange("relationship", e.target.value)}
                   required
@@ -131,7 +133,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
 
         {/* Applicant's Age (Separate Fields for MM, DD, YYYY) */}
         <div className="w-full md:w-1/4 mb-4 md:mb-0">
-          <label htmlFor="age" className="block text-gray-700 text-lg mb-2 font-semibold"> {/* Increased font size */}
+          <label htmlFor="age" className="block text-gray-700 text-lg mb-2 font-semibold"> 
             Age of Applicant<span className="text-red-500">*</span>
           </label>
           <div className="flex space-x-4">
@@ -167,7 +169,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
 
         {/* Disability Question */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-lg mb-2 font-semibold"> {/* Increased font size */}
+          <label className="block text-gray-700 text-lg mb-2 font-semibold"> 
             Does the applicant have a disability? <span className="text-red-500">*</span>
           </label>
           <div className="flex space-x-4">
@@ -203,7 +205,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
         {/* Upload File if Yes */}
         {hasDisability && (
           <div className="w-full">
-            <label className="block text-gray-700 text-lg mb-2"> {/* Increased font size */}
+            <label className="block text-gray-700 text-lg mb-2"> 
               <i>if yes, please Upload Documentation of Disability: </i> <span className="text-red-500">*</span>
             </label>
             <div className="flex flex-col sm:flex-row sm:space-x-4">
@@ -225,7 +227,7 @@ const FormStep1 = ({ nextStep, handleChange, formData }) => {
         <div className="flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-4">
           <button
             type="button"
-            className="bg-gray-300 text-gray-700 py-2 px-4 rounded w-full sm:w-auto text-lg" // Increased font size
+            className="bg-gray-300 text-gray-700 py-2 px-4 rounded w-full sm:w-auto text-lg" 
           >
             Back
           </button>
