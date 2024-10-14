@@ -26,31 +26,54 @@ const FormStep4 = ({ prevStep, handleChange, formData, handleSubmit }) => {
 
   return (
     <div className="container mx-auto px-4 sm:px-8 lg:px-16">
-      <form onSubmit={handleSign} className="p-6 sm:p-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 ">4. Review / Sign / Submit</h2>
+      <form onSubmit={handleSign} className="p-6 sm:p-8 bg-white rounded-lg">
+        <h2 className="text-2xl font-bold mb-6">4. Review / Sign / Submit</h2>
 
         {/* Review Details */}
-        <div className="mb-4 text-lg space-y-2 ">
-          <div className="flex justify-between items-center w-full">
-            <p><strong>Applicant’s Name:</strong><br/> {formData.applicantName.firstName} {formData.applicantName.lastName}</p>
-            <p><strong>Age:</strong><br/> {formData.birthMonth}/{formData.birthDay}/{formData.birthYear}</p>
-            <p><strong>Do you have a disability?</strong><br/> {formData.disability ? 'Yes' : 'No'}</p>
-            <p><strong>Disability Documentation Upload:</strong><br/> {formData.disabilityFile ? formData.disabilityFile.name : 'No file uploaded'}</p>
+        <div className="mb-4 text-sm sm:text-lg space-y-4">
+          <div className="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 w-full">
+            {/* First Column: Applicant's Name */}
+            <div className="flex-1">
+              <p><strong>Applicant’s Name:</strong><br /> {formData.applicantName.firstName} {formData.applicantName.lastName}</p>
             </div>
-            <div className="flex w-full items-center">
-              <div className="w-full md:w-1/4">
-          <p><strong>Meal Plan Choice:</strong><br/> {formData.mealPlan === '21' ? 'Full 21 Meals' : formData.mealPlan}</p>
+            {/* Second Column: Age */}
+            <div className="flex-1">
+              <p><strong>Age:</strong><br /> {formData.birthMonth}/{formData.birthDay}/{formData.birthYear}</p>
+            </div>
+            {/* Third Column: Disability */}
+            <div className="flex-1">
+              <p><strong>Do you have a disability?</strong><br /> {formData.disability ? 'Yes' : 'No'}</p>
+            </div>
+            {/* Fourth Column: Disability Documentation Upload */}
+            <div className="flex-1">
+              <p><strong>Disability Documentation Upload:</strong><br /> {formData.disabilityFile ? formData.disabilityFile.name : 'No file uploaded'}</p>
+            </div>
+          </div>
+          
+             {/* Meal Plan and Days Requested */}
+            <div className="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 w-full">
+              {/* First Column: Meal Plan Choice */}
+              <div className="flex-1">
+                <p><strong>Meal Plan Choice:</strong><br /> {formData.mealPlan === '21' ? 'Full 21 Meals' : formData.mealPlan}</p>
               </div>
-          <div className=""></div>
-          <p><strong>Days Requested:</strong> <br/>{formData.daysRequested.join(', ') || 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'}</p>
-          </div>
-          <p><strong>Delivery Address:</strong> <br/>{formData.address.street}, {formData.address.city}, {formData.address.state}, {formData.address.postal}, {formData.address.country}</p>
-          <p><strong>Delivery Instructions:</strong><br/> {formData.deliveryInstructions || 'No instructions provided'}</p>
-          <div className="flex w-full items-center">
-          <div className="w-full md:w-1/4">
-          <p><strong>Phone Number:</strong> <br/>{formattedPhone}</p>
-          </div>
-          <p><strong>Email:</strong><br/> {formData.email}</p>
+              {/* Second Column: Days Requested */}
+              <div className="flex-1">
+                <p><strong>Days Requested:</strong><br /> {formData.daysRequested.join(', ') || 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'}</p>
+              </div>
+            </div>
+          </div>  
+
+        {/* Other Review Details */}
+        <div className="mb-4 text-sm sm:text-lg space-y-4">
+          <p><strong>Delivery Address:</strong><br /> {formData.address.street}, {formData.address.city}, {formData.address.state}, {formData.address.postal}, {formData.address.country}</p>
+          <p><strong>Delivery Instructions:</strong><br /> {formData.deliveryInstructions || 'No instructions provided'}</p>
+          <div className="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 w-full">
+            <div className="flex-1">
+              <p><strong>Phone Number:</strong><br /> {formattedPhone}</p>
+            </div>
+            <div className="flex-1">
+              <p><strong>Email:</strong><br /> {formData.email}</p>
+            </div>
           </div>
         </div>
 

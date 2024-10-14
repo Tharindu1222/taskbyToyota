@@ -48,7 +48,7 @@ const FormStep2 = ({ prevStep, nextStep, handleChange, formData }) => {
 
   return (
     <div className="container mx-auto px-4 sm:px-8 lg:px-16">
-      <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white rounded-lg">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">2. Requested Services</h2>
 
         {/* Meal Plan Selection */}
@@ -100,16 +100,16 @@ const FormStep2 = ({ prevStep, nextStep, handleChange, formData }) => {
           <label className="block text-gray-700 text-lg mb-2 font-semibold">
             Days Requested <span className="text-red-500">*</span>
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-1 gap-2">
             {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
               <label key={day} className="flex items-center text-lg">
                 <input
-  type="checkbox"
-  checked={formData.mealPlan === '21' || formData.daysRequested.includes(day)}
-  onChange={() => handleDayChange(day)}
-  className="form-checkbox"
-  disabled={formData.mealPlan === '21'} // Disable checkboxes if full meal plan is selected
-/>
+              type="checkbox"
+              checked={formData.mealPlan === '21' || formData.daysRequested.includes(day)}
+              onChange={() => handleDayChange(day)}
+              className="form-checkbox"
+              disabled={formData.mealPlan === '21'} // Disable checkboxes if full meal plan is selected
+            />
 
                 <span className="ml-2">{day}</span>
               </label>

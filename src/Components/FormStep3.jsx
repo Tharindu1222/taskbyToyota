@@ -8,7 +8,7 @@ const FormStep3 = ({ nextStep, prevStep, handleChange, formData }) => {
 
   return (
     <div className="container mx-auto px-4 sm:px-8 lg:px-16">
-      <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white rounded-lg">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">3. Delivery and Contact Information</h2>
 
         {/* Delivery Address */}
